@@ -45,6 +45,7 @@ input, button, textarea{
 
     /* BORDERS */
     --BORDERS:1px solid var(--BORDER-COLOR);
+    --BORDER-RADIUS: 15px;
 
     /* STANDARD PADDING */
     --PADDING-TOPBOTTOM: 0.25em;
@@ -238,13 +239,95 @@ a:active {
 
 .contact__input, .contact__textarea{
     padding: 0.5em;
-    border-radius: 15px;
+    border-radius: var(--BORDER-RADIUS);
     border-width: 2px;
     width: 100%;
 }
 
 .contact__button{
     padding: 0.5em;
-    border-radius: 15px;
+    border-radius: var(--BORDER-RADIUS);
     background-color: bisque;
+}
+
+/* || MENU */
+thead, tbody, tfoot, tr {
+    display: contents;
+}
+
+.menu__container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "hd1 hd2 hd3"
+    "e1 e1hr e1tm"
+    "core corehr2 coretm2"
+    "core corehr3 coretm3"
+    "core corehrlun coretmlun"
+    "core corehr5 coretm5"
+    "core corehr6 coretm6"
+    "e2 e2hr e2tm"
+    "sch sch sch"
+    ;
+    gap: 0.1em;
+    margin-bottom: 1em;
+}
+
+.menu__e1{
+    grid-area: e1;
+
+}
+
+.menu__core{
+    grid-area: core;
+}
+
+.menu__e2{
+    grid-area: e2;
+}
+
+.menu__sch{
+    grid-area: sch;
+
+}
+
+.menu__e1, .menu__core, .menu__e2, .menu__sch, .menu__header{
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+}
+
+.menu__header, .menu__item{
+    width: 100%;
+    padding: 1em;
+    border: medium ridge var(--BORDER-COLOR);
+
+}
+
+.menu__item{
+    display: grid;
+    place-content: center;
+}
+
+thead th:first-child {
+    border-top-left-radius: var(--BORDER-RADIUS);
+}
+
+thead th:last-child {
+    border-top-right-radius: var(--BORDER-RADIUS);
+}
+
+tfoot td {
+    border-bottom-left-radius: var(--BORDER-RADIUS);
+    border-bottom-right-radius: var(--BORDER-RADIUS);
+}
+
+@media screen and (min-width: 576px){
+ .menu__header, .menu__e1, .menu__core, .menu__e2, .menu__sch{
+    font-size: 125%;
+ }
+ }
 }
